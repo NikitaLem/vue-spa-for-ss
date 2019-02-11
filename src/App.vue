@@ -26,10 +26,11 @@ body {
     <app-header></app-header>
     <main>
       <div class="table-wrapper">
-      <players-table
-        :players="players"
-      ></players-table>
+        <players-table
+          :players="players"
+        ></players-table>
       </div>
+      <edit-panel></edit-panel>
       <router-view></router-view>
     </main>
   </div>
@@ -39,6 +40,7 @@ body {
 import axios from 'axios'
 import PlayersTable from './components/PlayersTable'
 import Header from './components/Header'
+import EditPanel from './components/EditPanel'
 
 export default {
   name: 'App',
@@ -46,6 +48,7 @@ export default {
   components: {
     'app-header': Header,
     'players-table': PlayersTable,
+    'edit-panel': EditPanel
   },
 
   data() {

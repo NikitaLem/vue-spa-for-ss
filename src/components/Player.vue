@@ -78,6 +78,7 @@ export default {
     mounted() {
         anime({
             targets: '.player-card',
+            duration: 1000,
             easing: 'easeOutElastic()',
             translateY: this.panelRect.parentY - this.panelRect.y,
             height: this.panelRect.parentHeight + 'px'
