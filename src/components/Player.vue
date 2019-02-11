@@ -19,7 +19,7 @@
                 <i class="fas fa-arrow-up" style="font-size: 1.6rem"></i>
             </router-link>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-dark text-white">
             <p>
                 <strong>{{ `USERNAME: ${user.name}` }}</strong>
             </p>

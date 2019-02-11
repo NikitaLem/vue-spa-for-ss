@@ -28,9 +28,12 @@ body {
       <div class="table-wrapper">
         <players-table
           :players="players"
+          @show-editor="showEditor()"
         ></players-table>
       </div>
-      <edit-panel></edit-panel>
+      <edit-panel
+        :isActive=editActive
+      ></edit-panel>
       <router-view></router-view>
     </main>
   </div>
@@ -54,6 +57,7 @@ export default {
   data() {
     return {
       players: [],
+      editActive: false,
     }
   },
 
@@ -64,7 +68,11 @@ export default {
           this.players = response.data;
         })
         .catch(error => console.log(`Error: ${error}`));
-    }
+    },
+
+    showEditor() {
+      this.editActive = true;
+    },
   },
 
   mounted() {

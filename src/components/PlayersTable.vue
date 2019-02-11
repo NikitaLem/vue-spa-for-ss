@@ -30,7 +30,7 @@
                 <i class="fas fa-eye"></i>
               </button>
             </router-link>
-            <button class="btn btn-success player-edit">
+            <button class="btn btn-success player-edit" @click="$emit('show-editor')">
               <i class="fas fa-pencil-alt"></i>
             </button>
             <button class="btn btn-danger player-remove">

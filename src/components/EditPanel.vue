@@ -1,13 +1,9 @@
 <style lang="scss" scoped>
-    .edit-panel {
-        background-color: purple;
-        width: 0vw;
-        height: 0vh;
-    }
+    
 </style>
 
 <template>
-    <div class="edit-panel"></div>
+    <div class="edit-panel" :class="{ 'edit-panel_active': isActive }"></div>
 </template>
 
 <script>
@@ -23,12 +19,12 @@ export default {
         }
     },
  
-    mounted() {
-        anime({
-            targets: '.edit-panel',
-            width: '95vw',
-            height: '33vh'
-        })
-    }
+    // mounted() {
+    //     anime({
+    //         targets: '.edit-panel',
+    //         width: '95vw',
+    //         height: '33vh'
+    //     })
+    // }
 }
 </script>
