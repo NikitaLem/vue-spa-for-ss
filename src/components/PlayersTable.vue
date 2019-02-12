@@ -55,6 +55,7 @@
       :player="players[playerForDeleting]"
       :sizes="rectForPlayerPanel"
       :isActive="deleteIntent"
+      @cancel-deleting="cancelDeleting()"
     ></delete-panel>
 </div>
 </template>
@@ -112,12 +113,17 @@ export default {
     },
 
     showEditor(index) {
-      this.deleteIntent = false;
+      this.cancelDeleting();
       this.editorForShow = index;
     },
 
     onEditorComplete() {
       this.editorForShow = null;
+    },
+
+    cancelDeleting() {
+      this.deleteIntent = false;
+      this.playerForDeleting = null;
     }
   },
 

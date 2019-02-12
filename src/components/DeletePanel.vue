@@ -22,7 +22,7 @@
         <span v-if="isActive">Delete this player?</span>
         <div v-if="isActive" class="btn-group">
             <button type="button" class="btn" stryle="color: #fff">Yes</button>
-            <button type="button" class="btn" stryle="color: #fff">No</button>
+            <button type="button" class="btn" stryle="color: #fff" @click="$emit('cancel-deleting')">No</button>
         </div>
     </div>
 </template>
