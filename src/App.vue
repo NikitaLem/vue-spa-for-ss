@@ -28,12 +28,8 @@ body {
       <div class="table-wrapper">
         <players-table
           :players="players"
-          @show-editor="showEditor()"
         ></players-table>
       </div>
-      <edit-panel
-        :isActive=editActive
-      ></edit-panel>
       <router-view></router-view>
     </main>
   </div>
@@ -43,7 +39,6 @@ body {
 import axios from 'axios'
 import PlayersTable from './components/PlayersTable'
 import Header from './components/Header'
-import EditPanel from './components/EditPanel'
 
 export default {
   name: 'App',
@@ -51,13 +46,11 @@ export default {
   components: {
     'app-header': Header,
     'players-table': PlayersTable,
-    'edit-panel': EditPanel
   },
 
   data() {
     return {
       players: [],
-      editActive: false,
     }
   },
 
@@ -70,9 +63,7 @@ export default {
         .catch(error => console.log(`Error: ${error}`));
     },
 
-    showEditor() {
-      this.editActive = true;
-    },
+
   },
 
   mounted() {

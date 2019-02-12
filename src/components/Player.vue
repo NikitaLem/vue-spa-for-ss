@@ -2,6 +2,32 @@
 
     .player-card {
         position: absolute;
+    
+        .card-footer {
+            height: 50%;
+
+            .games-container {
+                height: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+
+                a {
+                    width: 30%;
+                    max-width: 259px;
+                    
+                    :hover {
+                        box-shadow: 0px 0px 8px #ffc107;
+                    }
+                }
+
+                img {
+                    border: 1px #ffc107 solid;
+                    border-radius: 3px;
+                }
+            }
+        }
     }
 
     .player-card__header {
@@ -24,8 +50,27 @@
                 <strong>{{ `USERNAME: ${user.name}` }}</strong>
             </p>
             <p>
-                {{ user.phone }}
+                {{ `Balance: ${user.phone}` }}
             </p>
+        </div>
+        <div class="card-footer bg-dark text-white">
+            <div class="games-container">
+                <router-link
+                    :to="{name: 'game', params: { id: 1, src: 'https://game-launcher.beta.clockwork.soma.ac/game/1', sizes: panelRect }}"
+                >
+                    <img src='../assets/dolphins_pearl_logo.jpg' style="width: 100%"/>
+                </router-link>
+                <router-link
+                    :to="{name: 'https://game-launcher.beta.clockwork.soma.ac/game/1'}"
+                >
+                    <img src='../assets/dolphins_pearl_logo.jpg' style="width: 100%"/>
+                </router-link>
+                <router-link
+                    :to="{name: 'https://game-launcher.beta.clockwork.soma.ac/game/1'}"
+                >
+                    <img src='../assets/dolphins_pearl_logo.jpg' style="width: 100%"/>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -51,7 +96,7 @@ export default {
         },
         panelRect: {
             type: Object,
-            default: () => {},
+            default: () => ({}),
         }
     },
 
