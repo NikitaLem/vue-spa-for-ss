@@ -30,6 +30,7 @@ body {
           :players="players"
         ></players-table>
       </div>
+      <!--<app-pagination></app-pagination>-->
       <router-view></router-view>
     </main>
   </div>
@@ -39,6 +40,7 @@ body {
 import axios from 'axios'
 import PlayersTable from './components/PlayersTable'
 import Header from './components/Header'
+import Pagination from './components/Pagination'
 
 export default {
   name: 'App',
@@ -46,6 +48,7 @@ export default {
   components: {
     'app-header': Header,
     'players-table': PlayersTable,
+    'app-pagination': Pagination,
   },
 
   data() {
@@ -55,12 +58,13 @@ export default {
   },
 
   methods: {
-    getPlayers() {
-      axios.get('https://jsonplaceholder.typicode.com/users/')
-        .then(response => {
-          this.players = response.data;
-        })
-        .catch(error => console.log(`Error: ${error}`));
+    async getPlayers() {
+      try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users/');
+        this.players = response.data;
+      } catch (error) {
+        console.error(error);
+      }
     },
 
 

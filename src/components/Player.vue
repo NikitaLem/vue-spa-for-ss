@@ -56,17 +56,17 @@
         <div class="card-footer bg-dark text-white">
             <div class="games-container">
                 <router-link
-                    :to="{name: 'game', params: { id: 1, src: 'https://game-launcher.beta.clockwork.soma.ac/game/1', sizes: panelRect }}"
+                    :to="{name: 'game', params: { id: '1', sizes: panelRect }}"
                 >
                     <img src='../assets/dolphins_pearl_logo.jpg' style="width: 100%"/>
                 </router-link>
                 <router-link
-                    :to="{name: 'https://game-launcher.beta.clockwork.soma.ac/game/1'}"
+                    :to="{name: 'game', params: { id: '1', sizes: panelRect }}"
                 >
                     <img src='../assets/dolphins_pearl_logo.jpg' style="width: 100%"/>
                 </router-link>
                 <router-link
-                    :to="{name: 'https://game-launcher.beta.clockwork.soma.ac/game/1'}"
+                    :to="{name: 'game', params: { id: '1', sizes: panelRect }}"
                 >
                     <img src='../assets/dolphins_pearl_logo.jpg' style="width: 100%"/>
                 </router-link>

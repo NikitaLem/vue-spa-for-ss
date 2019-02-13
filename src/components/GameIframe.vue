@@ -6,15 +6,20 @@
         iframe {
             border: none;
         }
+
+        button {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
     }
 </style>
 
 <template>
-    <div class="iframe-container card" :style="{ top: styleObj.y + 'px', left: styleObj.x + 'px', width: styleObj.width + 'px', height: styleObj.height + 'px' }">
+    <div class="iframe-container card" :style="{ top: styleObj.y, left: styleObj.x, width: styleObj.width, height: styleObj.height }">
         <router-link tag="button" class="btn btn-warning text-white" :to="{ name: '/'}">
             <i class="fas fa-arrow-up" style="font-size: 1.6rem"></i>
         </router-link>
-        <iframe :src="src" :style="{ width: styleObj.width + 'px', height: styleObj.height + 'px' }"></iframe>
+        <iframe :src="src" :style="{ width: styleObj.width, height: styleObj.height }"></iframe>
     </div>
 </template>
 
@@ -23,24 +28,41 @@ export default {
     name: 'GameIframe',
 
     props: {
-        src: {
+        id: {
             type: String,
-            default: '/',
+            default: '1',
         },
 
         sizes: {
             type: Object,
-            default: () => ({}),
+            default: () => ({
+                x: 0,
+                y: 0,
+                parentY: 50
+            }),
         },
     },
 
     computed: {
+        src() {
+            switch (this.id) {
+                case 1:
+                    return 'https://game-launcher.beta.clockwork.soma.ac/game/1';
+                case 2:
+                    return 'https://game-launcher.beta.clockwork.soma.ac/game/1';
+                case 3:
+                    return 'https://game-launcher.beta.clockwork.soma.ac/game/1';
+                default:
+                    return 'https://game-launcher.beta.clockwork.soma.ac/game/1';
+            }
+        },
+
         styleObj() {
             return {
-                x: this.sizes.x,
-                y: this.sizes.parentY,
-                width: document.documentElement.clientWidth,
-                height: document.documentElement.clientHeight - this.sizes.parentY
+                x: this.sizes.x + 'px',
+                y: this.sizes.parentY + 'px',
+                width: document.documentElement.clientWidth + 'px',
+                height: document.documentElement.clientHeight - this.sizes.parentY + 'px'
             };
         },
     },

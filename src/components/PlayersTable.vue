@@ -2,8 +2,11 @@
   .app-table {
 
     td {
-      cursor: pointer;
       border: 0;
+    }
+    
+    .app-table__row:hover {
+      background-color: #f8f9fa;;
     }
   }
 </style>
